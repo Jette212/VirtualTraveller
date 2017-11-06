@@ -1,10 +1,31 @@
 <html>
 <p>Where do you want to go?</p>
 <head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery-jvectormap-2.0.3.css') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-jvectormap-2.0.3.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-jvectormap-world-mill.js') }}"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('#world-map-gdp').vectorMap({
+			map: 'world_mill',
+			series: {
+				regions: [{
+					values: [],
+					scale: ['#C8EEFF', '#0071A4'],
+					normalizeFunction: 'polynomial'
+				}]
+			},
+			onRegionClick: function(e, code){
+				alert("you clicked: " + code);
+			}
+		});
+	});
+	</script>
 </head>
 <body>
-
-<div style="background-color:red; width:50%; height:50%; float:left">
+	<div id="world-map-gdp" />
+<!-- <div style="background-color:red; width:50%; height:50%; float:left">
 <a href="weather/iceland"><button type="button">Iceland!</button></a></div>
 
 
@@ -15,7 +36,7 @@
 <a href="weather/New York"><button type="button">New York!</button></a></div>
 
 <div style="background-color:orange; width:50%; height:50%; float:right">
-<a href="weather/Hong Kong"><button type="button">Hong Kong!</button></a></div>
+<a href="weather/Hong Kong"><button type="button">Hong Kong!</button></a></div> -->
 
 </body>
 </html>
