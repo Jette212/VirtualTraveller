@@ -1,0 +1,24 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div style="background-color:red; width:50%; height:50%; float:left">
+		<h1>Weather in {{ capital }}</h1>
+		<h3>{{ weather }}</h3>
+	</div>
+
+
+	<div style="background-color:blue; width:50%; height:50%; float:right">
+		<a href="weather/Sahara"><button type="button">Sahara!</button></a>
+	</div>
+
+	<div style="background-color:green; width:50%; height:50%; float:left">
+		<a href="weather/New York"><button type="button">New York!</button></a>
+	</div>
+
+	<div style="background-color:orange; width:50%; height:50%; float:right">
+		<a href="weather/Hong Kong"><button type="button">Hong Kong!</button></a>
+	</div>
+</body>
+</html>
