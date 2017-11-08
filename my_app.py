@@ -13,6 +13,7 @@ def what_is_weather(location):
 	endpoint = "http://api.openweathermap.org/data/2.5/weather"
 	payload = {"q": location, "units":"metric", "appid":"3b503bfa7ea64695d425e95faf892625"}
 	response = requests.get(endpoint, params=payload)
+	print response.json()
 	return response.json()["weather"][0]["description"] + '<br/>' + str(response.json()["main"]["temp"]) + '<br/>' + str(response.json()["main"]["temp_min"]) + '<br/>' + str(response.json()["main"]["temp_max"])   
 
 @app.route("/")
@@ -23,12 +24,20 @@ def hello():
 def countrydetail(location):
 	capital = code_to_capital(location)
 	weather = what_is_weather(capital)
-	return render_template("countrydetail.html", capital = capital, weather = weather)
+	news = country_news() 
+	return render_template("countrydetail.html", capital = capital, weather = weather, news = news)
 
 @app.route("/weather/<location>")
 def weather(location):
 	capital = code_to_capital(location)
 	return str(what_is_weather(capital))
+
+def country_news():
+	endpoint = "https://newsapi.org/v1/articles?source=techcrunch&apiKey=80fb8990d33c49128aab4e2a2990583b&country=gb"
+	response = requests.get(endpoint)
+	return response.json() 
+
+
 
 
 #API for exchange rates
