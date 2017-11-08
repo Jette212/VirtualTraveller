@@ -13,7 +13,7 @@ def what_is_weather(location):
 	endpoint = "http://api.openweathermap.org/data/2.5/weather"
 	payload = {"q": location, "units":"metric", "appid":"3b503bfa7ea64695d425e95faf892625"}
 	response = requests.get(endpoint, params=payload)
-	return response.json()["weather"][0]["description"] + '<br/>' + str(response.json()["main"]["temp"]) + '<br/>' + str(response.json()["main"]["temp_min"]) + '<br/>' + str(response.json()["main"]["temp_max"])   
+	return response.json()["weather"][0]["description"] + '<br>' + str(response.json()["main"]["temp"]) + '<br>' + str(response.json()["main"]["temp_min"]) + '<br>' + str(response.json()["main"]["temp_max"])   
 
 @app.route("/")
 def hello():
