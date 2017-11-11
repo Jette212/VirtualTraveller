@@ -39,7 +39,7 @@ def countrydetail(location):
 	news = country_news(location) 
 	pretty_news = json2html.convert(json = news)
 	return render_template("countrydetail.html", capital = capital, weather = weather, news = pretty_news, traffic = traffic)
-
+	
 @app.route("/weather/<location>")
 def weather(location):
 	capital = code_to_capital(location)
@@ -53,6 +53,8 @@ def weather(location):
 #20580abfe5aa991c3c0c67bf5b6c3f25
 
 #API for news: 80fb8990d33c49128aab4e2a2990583b
+
+#API for photos:AIzaSyCHUm9wiY-mvw8WkGpXeuKZguy_TSP1TtE
 
 app.run(debug=True)
 
