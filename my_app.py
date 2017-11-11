@@ -1,6 +1,6 @@
 import json
 import requests
-from json2html import *
+#from json2html import *
 from flask import Flask, render_template
 
 app = Flask("MyApp")
@@ -26,7 +26,7 @@ def what_is_traffic (location):
 def country_news(location):
 	endpoint = "https://newsapi.org/v1/sources?apiKey=80fb8990d33c49128aab4e2a2990583b&country=" + location
 	response = requests.get(endpoint)
-	return response.json()
+	return response.json() ["sources"][0]["description"] + '\n' + str(response.json()["sources"][0]["url"])
 
 
 @app.route("/")
@@ -39,8 +39,8 @@ def countrydetail(location):
 	weather = what_is_weather(capital)
 	traffic = what_is_traffic(location)	
 	news = country_news(location) 
-	pretty_news = json2html.convert(json = news)
-	return render_template("countrydetail.html", capital = capital, weather = weather, news = pretty_news, traffic = traffic)
+	#pretty_news = json2html.convert(json = news)
+	return render_template("countrydetail.html", capital = capital, weather = weather, traffic = traffic, news = news) #news = pretty_news,)
 
 @app.route("/weather/<location>")
 def weather(location):
