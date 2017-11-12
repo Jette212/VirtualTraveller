@@ -1,6 +1,5 @@
 import json
 import requests
-#from json2html import *
 from flask import Flask, render_template
 
 app = Flask("MyApp")
@@ -39,7 +38,6 @@ def countrydetail(location):
 	weather = what_is_weather(capital)
 	traffic = what_is_traffic(location)	
 	news = country_news(location) 
-	#pretty_news = json2html.convert(json = news)
 	return render_template("countrydetail.html", capital = capital, weather = weather, traffic = traffic, news = news) #news = pretty_news,)
 
 @app.route("/weather/<location>")
