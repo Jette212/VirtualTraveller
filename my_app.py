@@ -47,6 +47,10 @@ def country_currency(location):
     return [response.json()['currencies'][0]['name'].title(),
     	response.json()['currencies'][0]['symbol']]
 
+def country_news(location):
+  	endpoint = "https://newsapi.org/v1/sources?apiKey=80fb8990d33c49128aab4e2a2990583b&country=" + location
+  	response = requests.get(endpoint)
+ 	return response.json()["sources"][0]["description"] + '\n' + str(response.json()["sources"][0]["url"])
 
 @app.route('/')
 def hello():
@@ -61,6 +65,7 @@ def countrydetail(location):
     name = code_to_name(location)
     languages = code_to_language(location)
     currency = country_currency(location)
+    news = country_news(location)
     return render_template(
         'countrydetail.html',
         capital=capital,
@@ -69,6 +74,7 @@ def countrydetail(location):
         name=name,
         population=population,
         currency=currency,
+        news = news 
         )
 
 

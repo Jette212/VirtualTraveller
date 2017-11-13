@@ -22,6 +22,12 @@
                   <h3>Maximum: {{ weather[3] }}°C</h3>
                </div>
             </div>
+            <div class="info-item" id="location">
+               <h1> News in {{name}}</h1>
+               <div class="info-data">
+                  <h3>{{news}}</h3>
+               </div>
+         	</div>
             <div class="info-item" id="traffic">
                <h1>Population in {{ name }}</h1>
                <div class="info-data">
@@ -29,18 +35,11 @@
                </div>
             </div>
             <div class="info-item" id="local-jobs">
-               <h1> Local Languages </h1>
+               <h1> Local Languages & Currency in {{name}} </h1>
                <div class="info-data">
                   <h3>{{ languages }}</h3>
-               </div>
-            </div>
-            <div class="info-item" id="location">
-               <h1> Local Currency in {{ name}}</h1>
-               <div class="info-data">
                   <h3>{{currency[0]}} ({{ currency[1] }})</h3>
-               </div>
-            </div>
-         </div>
+               </div>            
       </div>
    </body>
 <head>
