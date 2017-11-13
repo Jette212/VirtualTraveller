@@ -1,58 +1,46 @@
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Cabin|Lobster|Lobster+Two|Montserrat|Roboto" rel="stylesheet">
-
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style-page2.css') }}">
-
-
-</head>
-<body>
-
-<div class="container">
-  
-
-	<div class="col-xs-12 col-md-6" style="background-color:#D3D3D3; ">
-=======
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-	<div style="background-color:red; width:50%; height:50%; float:left">
->>>>>>> Stashed changes
-		<h1>Weather in {{ capital }}</h1>
-		<h3>{{ weather }}</h3>
-	
-	</div>
-
-	<div class="col-xs-12 col-md-6" style="background-color:#DCDCDC;  float:right">
-		<h1> Traffic </h1>
-		<h1> Traffic in {{ capital }}<h1>
-			<h3>{{ traffic }} </h3>
-	</div>
-
-	<div class="col-xs-12 col-md-6" style="background-color:#DCDCDC;  float:left">
-		<h1> Catch up on the local news </h1>
-	</div>
-
-	<div class="col-xs-12 col-md-6" style="background-color:#D3D3D3; float:right">
-		<h1> Check out the location via Insta </h1>
-
-	</div>
-
-	</div>
-</div>
-
-
-</body>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster|Lobster+Two|Montserrat|Roboto" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style-page2.css') }}">
+   </head>
+   <body>
+      <div class="full-page-container">
+         <div class="item-container">
+            <div class="info-item" id="weather">
+               <h1>Weather in {{ capital }}</h1>
+               <div class="info-data">
+                  <h3>{{ weather[0] }}</h3>
+                  <h3>Current: {{ weather[1] }}°C</h3>
+                  <h3>Minimum: {{ weather[2] }}°C</h3>
+                  <h3>Maximum: {{ weather[3] }}°C</h3>
+               </div>
+            </div>
+            <div class="info-item" id="traffic">
+               <h1>Population in {{ name }}</h1>
+               <div class="info-data">
+                  <h3>{{ population }}</h3>
+               </div>
+            </div>
+            <div class="info-item" id="local-jobs">
+               <h1> Local Languages </h1>
+               <div class="info-data">
+                  <h3>{{ languages }}</h3>
+               </div>
+            </div>
+            <div class="info-item" id="location">
+               <h1> Local Currency in {{ name}}</h1>
+               <div class="info-data">
+                  <h3>{{currency[0]}} ({{ currency[1] }})</h3>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
 </html>
