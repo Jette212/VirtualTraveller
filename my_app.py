@@ -48,9 +48,10 @@ def country_currency(location):
     	response.json()['currencies'][0]['symbol']]
 
 def country_news(location):
-  	endpoint = "https://newsapi.org/v1/sources?apiKey=80fb8990d33c49128aab4e2a2990583b&country=" + location
+  	endpoint = "https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=80fb8990d33c49128aab4e2a2990583b&country=" + location
   	response = requests.get(endpoint)
- 	return response.json()["sources"][0]["description"] + '\n' + str(response.json()["sources"][0]["url"])
+ 	return response.json()['articles'][0]['title'] + '\n' + str(response.json()['articles'][0]['description'])
+ 		
 
 @app.route('/')
 def hello():
