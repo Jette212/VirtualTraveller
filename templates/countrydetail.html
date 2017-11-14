@@ -12,6 +12,7 @@
    </head>
    <body>
       <div class="full-page-container">
+         <div  style="position:absolute; right:50px; top:700px;" > <a href="http://127.0.0.1:5000"><img src="https://i.imgur.com/5I9y3iv.png" alt="Check out other countries"></a></div>
          <div class="item-container">
             <div class="info-item" id="weather">
                <h1>Weather in {{ capital }} <i class="glyphicon glyphicon-cloud"></i></h1>
@@ -20,6 +21,7 @@
                   <h3>Current: {{ weather[1] }}°C</h3>
                   <h3>Minimum: {{ weather[2] }}°C</h3>
                   <h3>Maximum: {{ weather[3] }}°C</h3>
+                     
                </div>
             </div>
             <div class="info-item" id="location">
@@ -39,8 +41,11 @@
                <div class="info-data">
                   <h3>{{ languages }}</h3>
                   <h3>{{currency[0]}} ({{ currency[1] }})</h3>
-               </div>            
+               </div>   
+
       </div>
+
+
    </body>
 <head>
 </html>
